@@ -1,0 +1,35 @@
+<div align="center">
+
+  <div id="time-ago" style="font-size: smaller; color: gray">
+    <%= time_ago_in_words post.created_at %>
+  </div>
+
+  <%= post.caption %><br>
+
+  <% if post.user == current_user %>
+      <%= link_to (image_tag post.image.url(:medium)), edit_post_path(post) %>
+  <% else%>
+      <%= image_tag post.image.url(:medium) %>
+  <% end %>
+
+  <table id="comments_<%= post.id %>">
+    <% if post.comments.any? %>
+
+      <div id="comments_paginator_<%= post.id %>">
+        <% if post.comments.count > 4 %>
+          <br><%= link_to "view all #{post.comments.count} comments", post_comments_path(post), remote: true %>
+        <%end %>
+      </div>
+
+      <% post.comments.last(4).each do |comment| %>
+        <%= render :partial => 'comments/comment', :locals => {:comment => comment, :post => post} %>
+      <% end %>
+
+    <% end %>
+  </table>
+
+  <%=form_for [post, post.comments.new], remote: true do |f| %>
+      <br><%= f.text_field :content, placeholder: 'Add a comment...', id: "comment_content_#{post.id}", size: "86" %><br>
+  <% end %>
+
+</div>

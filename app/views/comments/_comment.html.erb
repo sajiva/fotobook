@@ -1,0 +1,6 @@
+<tr id="comment_<%= post.id %>_<%= comment.id %>"><td><%= link_to comment.user.user_name, profile_path(comment.user.user_name) %></td>
+  <td><%= comment.content %></td>
+  <% if comment.user == current_user %>
+    <td><%= link_to 'x', post_comment_path(post, comment), method: 'delete', remote: true %></td>
+  <% end %>
+</tr>

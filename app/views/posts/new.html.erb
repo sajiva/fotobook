@@ -1,0 +1,20 @@
+<div align="center">
+    <b>Create New Post</b><br><br>
+
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |message| %>
+          <%= message %>
+      <% end %><br><br>
+    <% end %>
+
+    <%= form_for @post, :html => {:multipart => true} do |form| %>
+        <%= form.label :image %><br>
+        <%= form.file_field :image, :required => true%><br><br>
+        <%= form.label :caption %><br>
+        <%= form.text_area :caption, size: "50" %><br>
+        <%= form.submit %>
+    <% end %>
+    <br>
+
+    <%= link_to 'Cancel', posts_path, method: 'get' %>
+</div>

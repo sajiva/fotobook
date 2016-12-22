@@ -1,0 +1,2 @@
+$('#comments_<%= post.id %>').replaceWith('<%= j render :partial => 'load_all', :locals => { :post => post } %>');
+$('#comments_paginator_<%= post.id %>').hide();

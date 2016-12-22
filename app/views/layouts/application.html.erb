@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fotobook | <%= content_for?(:title) ? yield(:title) : "Image sharing web app" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body align="center">
+    <div id="header">
+      <% if user_signed_in? %>
+        <div id="left-navbar">
+          <ul id="nav-ul">
+            <li id="nav-li"><%= link_to_unless_current "Home", root_url %></li>
+            <li id="nav-li"><%= link_to_unless_current current_user.user_name, profile_path(current_user.user_name) %></li>
+            <li id="nav-li"><%= link_to_unless_current "Browse", browse_posts_path %></li>
+            <li id="nav-li"><%= link_to_unless_current "New Post", new_post_path %></li>
+          </ul>
+        </div>
+        <div id="right-navbar">
+          <ul id="nav-ul">
+            <li id="nav-li"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </div>
+      <% else %>
+        <h3>Share your photos with your friends!</h3>
+      <% end %>
+      <h1>Fotobook</h1>
+    </div>
+
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <% if msg.include? "Invalid" %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

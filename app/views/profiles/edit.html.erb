@@ -1,0 +1,22 @@
+<div align="center">
+
+  <b>Edit Profile</b><br><br>
+
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= profile_image_select(@user) %><br>
+
+  <%= form_for @user, url: {action: "update"}, :html => {:multipart => true} do |form| %>
+      <%= form.label :image %><br>
+      <%= form.file_field :image, :required => true%><br><br>
+      <%= form.submit %>
+  <% end %>
+  <br>
+
+  <%= link_to 'Cancel', profile_path(@user.user_name), method: 'get' %>
+
+</div>

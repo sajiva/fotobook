@@ -1,0 +1,9 @@
+<div align="center">
+  <%= link_to @post.user.user_name, profile_path(@post.user.user_name) %><br>
+  <%= render :partial => 'post', :locals => {:post => @post} %>
+
+  <% if @post.user == current_user %>
+      <%= link_to 'Edit Post', edit_post_path(@post), method: 'get' %>
+  <% end %>
+
+</div>

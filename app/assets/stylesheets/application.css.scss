@@ -1,0 +1,131 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  background-color: papayawhip;
+}
+
+a:link {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+  font-weight: bold;
+}
+
+#left-navbar {
+  position: fixed;
+  top:10px;
+  //left:39%;
+  //margin-left:-254px;
+}
+
+#right-navbar {
+  position: fixed;
+  top:10px;
+  left:90%;
+  //margin-left:1130px;
+}
+
+#header {
+  position: fixed;
+  z-index: 1;
+  top: -20px;
+  width: 100%;
+  background-color: lightblue;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  //margin-bottom: 25px;
+}
+
+#nav-ul{
+  list-style-type: none;
+  position: fixed;
+  margin: -10px;
+}
+
+#nav-li {
+  display: inline;
+  border: 2px solid #000000;
+  font-family: Futura, Tahoma, sans-serif;
+  color: blue;
+  padding: 5px;
+  border-radius: 5px 5px;
+  background-color: lightgoldenrodyellow;
+}
+
+h1 {
+  font-family: Cambria;
+  font-weight: bold;
+  text-align: center;
+  //padding-top: 25px;
+  //padding-bottom: 25px;
+  color: salmon;
+}
+
+h3 {
+  font-family: Cambria;
+  text-align: center;
+  font-style: italic;
+  font-size: medium;
+  //padding-top: 25px;
+  //padding-bottom: 25px;
+  color: lightyellow;
+}
+
+#container {
+  position: relative;
+  margin-top: 100px;
+}
+
+//table.center {
+  //width:80%;
+  //margin-left:10%;
+  //margin-right:10%;
+//}
+
+#photo-grid {
+  //border: #000000 1px solid;
+  //width:84%;
+  //margin-left:8%;
+  //margin-right:8%;
+  margin: auto;
+  //background-color: #acd1b2;
+  //border-bottom-right-radius: 15px;
+  //border-bottom-left-radius: 15px;
+}
+
+#photo {
+  display: inline-block;
+
+}
+
+#photo img {
+  height: 250px;
+  width: 350px;
+  margin: 5px;
+}
+
+#profile img {
+  //height: 100px;
+  //width: 100px;
+  border-radius: 20%;
+  //border: 2px solid brown;
+}
+

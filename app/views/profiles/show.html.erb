@@ -1,0 +1,20 @@
+<%= @user.user_name %><br>
+
+<div id="profile"><%= profile_image_select(@user) %></div><br>
+
+<% if @user == current_user %>
+  <%= link_to 'Change Profile Picture', edit_profile_path(@user.user_name) %>
+<% else %>
+  <% if current_user_is_following(current_user.id, @user.id) %>
+      <%= render :partial => 'relationships/unfollow_user', :locals => {:user => @user} %>
+  <% else %>
+      <%= render :partial => 'relationships/follow_user', :locals => {:user => @user} %>
+  <% end %>
+<% end %>
+
+<hr>
+
+<% @posts.each do |post| %>
+    <%= render :partial => 'posts/post', :locals => {:post => post} %>
+    <hr>
+<% end %>

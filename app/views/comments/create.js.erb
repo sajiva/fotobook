@@ -1,0 +1,2 @@
+$('#comments_<%= post.id %>').append('<%= j render :partial => 'comment', :locals => {:comment => comment, :post => post} %>');
+$('#comment_content_<%= post.id %>').val('');
